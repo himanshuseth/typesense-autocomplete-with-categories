@@ -1,7 +1,7 @@
-export const INSTANT_SEARCH_INDEX_NAME = "products";
+export const INSTANT_SEARCH_INDEX_NAME = "instant_search";
 export const INSTANT_SEARCH_QUERY_SUGGESTIONS =
-  "products";
+  "instant_search_demo_query_suggestions";
 export const INSTANT_SEARCH_HIERARCHICAL_ATTRIBUTES = [
-  "categories.lvl0",
-  "categories.lvl1"
+  "hierarchicalCategories.lvl0",
+  "hierarchicalCategories.lvl1"
 ];

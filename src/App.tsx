@@ -8,7 +8,7 @@ import './App.css';
 import { Autocomplete } from './Autocomplete';
 import { INSTANT_SEARCH_INDEX_NAME } from './constants';
 
-const searchClient = algoliasearch(
+let searchClient = algoliasearch(
   'latency',
   '6be0576ff61c053d5f9a3225e2a90f76',
 );
@@ -29,6 +29,8 @@ const typesenseInstantSearchAdapter = new TypesenseInstantSearchAdapter({
     facet_by: "category",
   },
 });
+
+//searchClient = typesenseInstantSearchAdapter.searchClient
 
 
 type HitProps = {
@@ -63,7 +65,7 @@ export function App() {
   return (
     <div>
       <InstantSearch
-        searchClient={typesenseInstantSearchAdapter.searchClient}
+        searchClient={searchClient}
         indexName={INSTANT_SEARCH_INDEX_NAME}
         routing
       >
@@ -73,7 +75,7 @@ export function App() {
               <a href='/'>Home</a>
             </nav>
             <Autocomplete
-              searchClient={typesenseInstantSearchAdapter.searchClient}
+              searchClient={searchClient}
               placeholder='Search products'
               detachedMediaQuery='none'
               openOnFocus={true} />
